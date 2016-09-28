@@ -6,3 +6,4 @@
  
  
  [1]:https://github.com/Tearran/MyCMSalpha
+ [2]:http://www.w3schools.com/php/php_mysql_create.asp
