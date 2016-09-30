@@ -1,7 +1,11 @@
-#**[MyCMSalpha][1]**
+#[MyCMSalpha][1]
 
-**[MyCMSalpha][1]** is an Open Source PHP/MySQL Content Management System (CMS).
+**[MyCMSalpha][1]** is an Open Source PHP/MySQL Basic Content Management System (CMS).
  --------------
+ > This project was started to brush up on:
+ - PHP/MySQL
+ - git
+ - github
 
  
  
