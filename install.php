@@ -27,20 +27,23 @@ function install_input($data) {
 }
 ?>
 <div class="form">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+		<div> mySQL hostame:</div>
+		<div> <input type="text" name="hostname"></div>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
- <div> mySQL hostame: <input type="text" name="hostname"> </div>
+		<div>mySQL user name:</div>
+		<div><input type="text" name="user"></div>
 
-  <div>mySQL user name: <input type="text" name="user"> </div>
+		<div>mySQL user password:</div>
+		<div><input type="text" name="password"></div> 
 
-  <div>mySQL user password: <input type="text" name="password"></div> 
-
-  <div>mySQL database name: <input type="text" name="dbname"> </div>
+		<div>mySQL database name:</div>
+		</div><input type="text" name="dbname"></div>
  
-  <div><input type="submit" name="submit" value="Submit"></div>  
-</form>
-
+		<div><input type="submit" name="submit" value="Submit"></div> 	
+	</form>
 </div>
+
 <?php
 
 if (!empty($_POST)){
