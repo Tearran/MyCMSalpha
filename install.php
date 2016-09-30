@@ -26,6 +26,7 @@ function install_input($data) {
   return $data;
 }
 ?>
+<!-- basic form eliment -->
 <div class="form">
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
 		<div> mySQL hostame:</div>
@@ -45,27 +46,22 @@ function install_input($data) {
 </div>
 
 <?php
-
+// If form is not empty
 if (!empty($_POST)){
-echo "<HR>";
-echo $hostname;
-echo "<br>";
-echo $user;
-echo "<br>";
+echo "<HR><div>".$hostname."</div>".$user."</div>";
 
-if ($password){echo $password;
-echo "<br>";
+if ($password){
+	echo "<div>".$password."</div>";
+}
+if (empty($password)){
+	echo "<div>No Password used!</div>";
 }
 
-else{
-	echo "No Password used!";
-	echo "<br />";
-}
-echo $dbname;
-echo "<br>";
-};
+echo "<div>".$dbname."</div>";
 
+		};
 ?>
+
 
 </body>
 </html>
