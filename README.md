@@ -18,7 +18,7 @@ This project was started to brush up on:
  
  
  Copyright © 2016 Joseph Collen Turner
- [1]:https://github.com/Tearran/MyCMSalpha
+ [1]:http://mycmsalpha.com
  [2]:http://www.w3schools.com/php/php_mysql_create.asp
  [3]:https://github.com/Tearran/MyCMSalpha/archive/master.zip
  [4]:https://www.mysql.com/
