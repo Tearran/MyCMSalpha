@@ -1,52 +1,55 @@
-<?php
-// start session cookies
-session_start();
-
-if(isset($_POST['username'])&&isset($_POST['password'])){
-	// action for successful login
-	if($_POST['username']=='admin' && $_POST['password']=='admin'){
-		echo'login successful <BR />';
-		echo'<a href="?logout">Logout</a>';
-		exit;
-	}
+<?php //session_start(); /* Starts the session */
 	
-	// action for unsuccessful login
-	if($_POST['username']!='admin' || $_POST['password']!='admin'){
-		session_unset();
-		echo'Invalid login ';
-		echo'<BR \><a href=\'login.php\'>Try again</a \> ';
-		exit;
-		}
-}
-?>
-
-<?php
-
-// Logout via get method
-if(isset($_GET["logout"])){
-	session_unset();
-	session_destroy();
-	echo 'logged out';
-	echo'<BR \><a href=\'login.php\'>Log in again</a \> ';
-	exit;
-}
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-	<head>
-		<title>Login</title>
-	</head>
-	<body>
-
-	</body>
-</html>
-		<form action="login.php" method="post">
-		Username:<input type="text" name="username" id="username">
-		Password:<input type="password" name="password" id="password">
-		<input type="submit" value="Login">
-		</form>
+	/* Check Login form submitted */	
+	if(isset($_POST['Submit'])){
+		/* Define username and associated password array */
+		$logins = array('admin' => 'admin','user' => 'user','username2' => 'password2');
 		
-</body>
-</html>
+		/*  submitted Username and Password */
+		if (isset($_POST['Username'])):
+			$Username = $_POST['Username'] ;
+		endif;
+		
+		if (isset($_POST['Password'])):
+			$Password = $_POST['Password'] ;
+		endif;
+
+		
+		/* Check Username and Password existence in defined array */		
+		if (isset($logins[$Username]) && $logins[$Username] == $Password){
+			/* Success: Set session variables and redirect to Protected page  */
+			$_SESSION['UserData']['Username']=$logins[$Username];
+			header("location:basic.php");
+			exit;
+		} else {
+			/*Unsuccessful attempt: Set error message */
+			$msg="<span style='color:red'>Invalid Login Details</span>";
+		}
+	}
+?>
+
+
+<form action="" method="post" name="Login_Form">
+  <table width="400" border="0" align="center" cellpadding="5" cellspacing="1" class="Table">
+    <?php if(isset($msg)){?>
+    <tr>
+      <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
+    </tr>
+    <?php } ?>
+    <tr>
+      <td colspan="2" align="left" valign="top"><h3>Login</h3></td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">Username</td>
+      <td><input name="Username" type="text" class="Input"></td>
+    </tr>
+    <tr>
+      <td align="right">Password</td>
+      <td><input name="Password" type="password" class="Input"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
+    </tr>
+  </table>
+</form>
