@@ -1,4 +1,5 @@
 <?php 	session_start(); 	?>
+<?php 	require 'assets/config.php';	?>
 <?php 	include 'template/head.html';	?>
 <?php 	include 'template/navbar.html';?>
 
@@ -22,11 +23,11 @@
 <?php 	endif; ?>
 
 <?php 	include 'template/form.html'; ?>
-
 <?php 		if(isset($msg)):?>
 <?php 			echo $msg;?></td>
 <?php 		endif; ?>
 <?php		exit; ?>
+
 <?php 	endif; ?>
-Congratulation! You have logged into password protected page. 
+
 <?php include 'template/foot.html';	?>

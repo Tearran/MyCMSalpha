@@ -12,7 +12,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
 <?php 	if(isset($_SESSION['UserData']['Username'])):  ?>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo '$username'; ?></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['UserData']['Username']; ?></a></li>
 
 			<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 <?php 	endif; ?>
