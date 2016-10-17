@@ -13,10 +13,7 @@ This project was started to brush up on:
 
   * Use GitHub: [download the zip][3]
   * Use Git: `git clone https://github.com/Tearran/MyCMSalpha.git`
-  * Change permissions on `install.php` to `755 -rwxr-xr-x`.
-  *Alternatively enter your database details into `config.php`.
-
- 
+  * Change permissions on the `install.php` to `755 -rwxr-xr-x`. 
  
  Copyright © 2016 Joseph Collen Turner
  [1]:http://mycmsalpha.com
