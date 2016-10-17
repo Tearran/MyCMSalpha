@@ -11,7 +11,7 @@ This project was started to brush up on:
 
 [PHP 5.6+][3] , [mySQL database server][4], and simple text editor are required.
 
-  * Use GitHub: [download the zip][3]
+  * Use GitHub: `[download the zip][3]`.
   * Use Git: `git clone https://github.com/Tearran/MyCMSalpha.git`
   * Change permissions on the `install.php` to `755 -rwxr-xr-x`. 
  
