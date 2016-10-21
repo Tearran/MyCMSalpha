@@ -1,4 +1,4 @@
-<?php 	include 'template/head.html';	?>
+<?php 	include dirname(__FILE__) . '/template/head.html';	?>
 <?php
 /*
 	myCMSAlph databace installer

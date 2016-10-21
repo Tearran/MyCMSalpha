@@ -5,5 +5,6 @@ date_default_timezone_set( "America/Chicago" );
 $DB_SERVERNAME = "localhost"; 		// mySQL Database host address
 $DB_USERNAME = "root";				// database username
 $DB_PASSWORD = "";				// database password	
-$CMS_NAME = "myCMSalpha";			// Name of the database	
+$CMS_NAME = "myCMSalpha11";			// Name of the database
+
 ?>

@@ -1,13 +1,19 @@
-<?php 	include 'template/head.html';	?>
+
+<?php 
+	include 'assets/var.php';
+	include 'assets/config.php';
+	include $local_theme_dir.'head.html';	
+?>
+
 <?php
-/*
-	myCMSAlph databace installer
-	Copyright © 2016 Joseph Collen Turner
+/**
+*	myCMSAlph databace installer
+*	Copyright © 2016 Joseph Collen Turner
 */
 
 //display errors if they exist SET TO false on live site.
 ini_set( "display_errors", TRUE );				 
-
+//strip unwanted characters
 function set_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -15,13 +21,10 @@ function set_input($data) {
   return $data;
 }
 
-function form_output($a,$b,$c,$d){	
+function form_output($servername,$username,$password,$databasename){
+	
 	if ($_SERVER["REQUEST_METHOD"] == "POST"):
-		$servername = $a;
-		$username = $b;
-		$password = $c;
-		$databasename = $d;
-				
+	
 		$conn = new mysqli($servername, $username, $password);	// Create connection
 
 		if (!$conn): // Check connection
@@ -58,19 +61,23 @@ function form_output($a,$b,$c,$d){
 		$conn = new mysqli($servername, $username, $password, $databasename);
 		if ($conn):	
 			$configfile = fopen("assets/config.php", "w") or die("<div class=\"alert alert-danger\" role=\"alert\">Unable to create file!</div>");
+
 			$text = '<?php
-// List of Supported Timezones http://www.php.net/manual/en/timezones.php
-date_default_timezone_set( "America/Chicago" );  
-//database configurations 
-$DB_SERVERNAME = "'.$servername.'"; 		// mySQL Database host address
-$DB_USERNAME = "'.$username.'";				// database username
-$DB_PASSWORD = "'.$password.'";				// database password	
-$CMS_NAME = "'.$databasename.'";			// Name of the database	
-?>';
+				// List of Supported Timezones http://www.php.net/manual/en/timezones.php
+				date_default_timezone_set( "America/Chicago" );  
+				//database configurations 
+				$DB_SERVERNAME 	= "'.$servername.'"; 		// mySQL Database host address
+				$DB_USERNAME 	= "'.$username.'";				// database username
+				$DB_PASSWORD 	= "'.$password.'";				// database password	
+				$CMS_NAME 		= "'.$databasename.'";			// Name of the database	
+				
+				?>';
+			
 			fwrite($configfile, $text);
 			fclose($configfile);
 			
 			echo '<div class="alert alert-success" role="alert">Configuration file created successfully</div>';
+			echo '<div><a href="admin.php">Log in</div>';
 		endif;
 	
 		mysqli_close($conn);
@@ -87,8 +94,6 @@ $servername = $username = $password = $databasename = '';
 		$databasename = set_input($_POST["databasename"]);
 	endif;
 ?>
-
-
 
 <!-- form container -->
 <div class="container col-md-4 col-md-offset-4">
@@ -118,8 +123,8 @@ $servername = $username = $password = $databasename = '';
 			</div>
 		</div>
 	</div>
-</div>	
+
+	</div>	
 <!-- /form container -->
 
-
-<?php include 'template/foot.html';	?>
+<?php include $local_theme_dir.'/foot.html';	?>
